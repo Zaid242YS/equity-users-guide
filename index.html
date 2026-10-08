@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>User's Guide · Creed-to-Commerce™ Aquaponics Equity Outcome Ranker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --font:'Amiri','Scheherazade New','Traditional Arabic',Georgia,'Times New Roman',serif;
+  --num:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --bg:#f7f5ee;--card:#fffdf8;--ink:#16241c;--muted:#5f6b60;--line:#e3dcc5;
+  --accent:#0b5d3b;--accent-soft:#e6f0e3;--gold:#b8902f;--gold-soft:#f6edd2;
+  --pos:#1b7f4c;--neg:#b8392f;--warn:#9a6a00;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1a14;--card:#16251c;--ink:#eef3ea;--muted:#a9b8a8;--line:#2d4034;
+    --accent:#4fc08a;--accent-soft:#1a3326;--gold:#d8b45a;--gold-soft:#2b2814;
+    --pos:#58cf97;--neg:#f0786d;--warn:#e0b050;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1a14;--card:#16251c;--ink:#eef3ea;--muted:#a9b8a8;--line:#2d4034;
+  --accent:#4fc08a;--accent-soft:#1a3326;--gold:#d8b45a;--gold-soft:#2b2814;
+  --pos:#58cf97;--neg:#f0786d;--warn:#e0b050;
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 12px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:18px;line-height:1.6}
+.layout{max-width:1060px;margin:0 auto;padding:16px;display:grid;grid-template-columns:230px minmax(0,1fr);gap:24px}
+@media(max-width:820px){.layout{grid-template-columns:1fr}}
+nav.toc{position:sticky;top:12px;align-self:start;max-height:calc(100vh - 24px);overflow:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:.95rem}
+@media(max-width:820px){nav.toc{position:static;max-height:none}}
+nav.toc b{color:var(--accent);display:block;margin-bottom:6px}
+nav.toc a{display:block;color:var(--ink);text-decoration:none;padding:3px 0;border-left:3px solid transparent;padding-left:8px}
+nav.toc a:hover{border-left-color:var(--gold);color:var(--accent)}
+main{min-width:0}
+.brand{text-align:center;padding:18px 12px 14px;margin-bottom:18px;border-radius:14px;
+  background:linear-gradient(180deg,var(--accent-soft),var(--card));border:1px solid var(--line);border-top:4px solid var(--gold)}
+.basmala{font-size:2rem;line-height:1.9;color:var(--gold);font-weight:700}
+.mark{font-size:1.7rem;font-weight:700;color:var(--accent)}
+.mark sup{font-size:.5em;color:var(--gold)}
+.org{font-size:.95rem;color:var(--muted)}
+.rule{height:2px;width:90px;background:var(--gold);margin:10px auto 0;border-radius:2px}
+.doc-title{text-align:center;margin:0 0 4px;font-size:1.9rem;color:var(--accent)}
+.doc-sub{text-align:center;color:var(--muted);margin:0 0 20px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:16px}
+h2{font-size:1.5rem;color:var(--accent);margin:0 0 8px;padding-bottom:4px;border-bottom:2px solid var(--gold)}
+h3{font-size:1.2rem;color:var(--accent);margin:18px 0 4px}
+p{margin:8px 0}
+ul,ol{padding-left:22px;margin:8px 0}
+li{margin:4px 0}
+.callout{border-left:4px solid var(--gold);background:var(--gold-soft);border-radius:10px;padding:10px 14px;margin:12px 0}
+.callout.warn{border-left-color:var(--warn)}
+.callout.good{border-left-color:var(--accent);background:var(--accent-soft)}
+.callout b.t{display:block;color:var(--accent)}
+.callout.warn b.t{color:var(--warn)}
+.steps{counter-reset:s;list-style:none;padding:0}
+.steps li{counter-increment:s;position:relative;padding:8px 8px 8px 46px;margin:8px 0;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.steps li::before{content:counter(s);position:absolute;left:10px;top:8px;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--num);font-size:.85rem;font-weight:700}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.88rem;font-family:var(--num);min-width:560px}
+th,td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--accent);background:var(--accent-soft)}
+td:first-child{font-weight:600;white-space:nowrap}
+code,.k{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85em;background:var(--accent-soft);padding:1px 6px;border-radius:5px}
+.btn{display:inline-block;font-family:var(--font);font-size:.9em;padding:1px 10px;border-radius:8px;border:1px solid var(--accent);color:var(--accent);background:var(--card);font-weight:700}
+.btn.p{background:var(--accent);color:#fff;border:2px solid var(--gold)}
+.btn.d{color:var(--neg);border-color:var(--neg)}
+.formula{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85rem;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;overflow-x:auto;white-space:pre;margin:8px 0}
+.pos{color:var(--pos)}.neg{color:var(--neg)}
+details{border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin:8px 0;background:var(--bg)}
+summary{cursor:pointer;font-weight:700;color:var(--accent)}
+.foot{text-align:center;color:var(--muted);font-size:.9rem;padding:14px 8px 28px;border-top:2px solid var(--gold)}
+.foot b{color:var(--accent)}
+.printbtn{display:block;margin:0 auto 18px;font-family:var(--font);font-size:1rem;font-weight:700;background:var(--accent);color:#fff;border:2px solid var(--gold);border-radius:10px;padding:8px 16px;cursor:pointer}
+@media print{
+  :root,:root[data-theme]{--bg:#fff;--card:#fff;--ink:#111;--muted:#444;--line:#cfd6d3;--accent:#0b5d3b;--accent-soft:#e8f1e4;--gold:#9a7416;--gold-soft:#f8f0d6;padding:0}
+  body{font-size:12.5px;background:#fff}
+  nav.toc,.printbtn{display:none}
+  .layout{display:block;padding:0}
+  section{page-break-inside:avoid;border-radius:0}
+  h2{page-break-after:avoid}
+  table{min-width:0}
+  @page{margin:14mm 14mm 16mm}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<nav class="toc" aria-label="Contents">
+  <b>Contents</b>
+  <a href="#welcome">1. Welcome</a>
+  <a href="#quickstart">2. Quick start</a>
+  <a href="#tour">3. Screen tour</a>
+  <a href="#data">4. Data manager</a>
+  <a href="#currency">5. Currency toggle</a>
+  <a href="#assumptions">6. Farm assumptions</a>
+  <a href="#scenarios">7. Scenarios</a>
+  <a href="#outcomes">8. Equity outcomes</a>
+  <a href="#montecarlo">9. Monte Carlo</a>
+  <a href="#cashflow">10. Cash flow table</a>
+  <a href="#pdf">11. Investor PDF</a>
+  <a href="#reading">12. Reading results</a>
+  <a href="#model">13. How the model works</a>
+  <a href="#limits">14. Limitations</a>
+  <a href="#trouble">15. Troubleshooting</a>
+  <a href="#glossary">16. Glossary</a>
+</nav>
+
+<main>
+  <div class="brand">
+    <div class="basmala" lang="ar" dir="rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+    <div class="mark">Creed-to-Commerce<sup>™</sup></div>
+    <div class="org">The Balanced Middle Path Academy, LLC</div>
+    <div class="rule"></div>
+  </div>
+
+  <h1 class="doc-title">User's Guide</h1>
+  <p class="doc-sub">Aquaponics Tilapia Farm · Equity Outcome Ranker (Saudi Arabia) · for app version 3</p>
+  <button class="printbtn" onclick="window.print()">Print or save this guide as PDF</button>
+
+  <!-- 1 -->
+  <section id="welcome">
+    <h2>1. Welcome</h2>
+    <p>The Equity Outcome Ranker helps you answer one question before you commit money to an aquaponics tilapia farm: <b>what happens to the owners' equity if things go better or worse than planned?</b></p>
+    <p>It combines three tools in one file:</p>
+    <ul>
+      <li><b>Scenarios:</b> a handful of named cases (for example, downside, base, upside) ranked from the lowest to the highest equity outcome.</li>
+      <li><b>Monte Carlo simulation:</b> thousands of random trials that show the <i>probability</i> of success or loss.</li>
+      <li><b>Investor PDF:</b> a branded report you can hand to investors or lenders.</li>
+    </ul>
+    <div class="callout good"><b class="t">Who this is for</b>Farm founders, co-investors, lenders and advisors who want a disciplined, numbers-first view of equity risk. No spreadsheet skills are needed.</div>
+    <div class="callout warn"><b class="t">Important</b>The app opens with <b>illustrative sample data</b>. These are placeholders, not quotes or forecasts. Replace them with verified figures before you rely on any result (see <a href="#data">Data manager</a>).</div>
+    <p>The app runs in your web browser. It has no account, no server and no tracking. Your numbers stay on your device unless you export them.</p>
+  </section>
+
+  <!-- 2 -->
+  <section id="quickstart">
+    <h2>2. Quick start (10 minutes)</h2>
+    <ol class="steps">
+      <li><b>Open the app file</b> (<code>aquaponics-equity-outcomes-v3-creed-to-commerce.html</code>) in Chrome, Edge, Safari or Firefox. Double-clicking the file is enough.</li>
+      <li><b>Clear the sample data.</b> In the Data manager, tap <span class="btn d">Clear all sample data</span> and tap it again to confirm. Every field becomes blank.</li>
+      <li><b>Enter your farm's assumptions</b> in Section 1: capex, working capital, loan terms, output, price, costs, and your required return.</li>
+      <li><b>Edit the scenarios</b> in Section 2. Rename them, adjust the multipliers, and mark one as <b>Base</b>.</li>
+      <li><b>Read the ranking</b> in Section 3. Scenarios are listed from lowest (#1) to highest. Tap a metric button to re-rank by NPV, IRR, multiple, ROE or exit value.</li>
+      <li><b>Run the Monte Carlo</b> in Section 4 and read the probability of a positive NPV and of losing capital.</li>
+      <li><b>Fill in the report details</b> (project name, who it is for, who prepared it) and tap <span class="btn p">⬇ Investor PDF</span>. Choose <i>Save as PDF</i>.</li>
+    </ol>
+    <div class="callout"><b class="t">Coach's tip</b>Save your work as you go with <span class="btn">Export data (JSON)</span>. Name each file by version, such as "Base plan, loan at 4.5%".</div>
+  </section>
+
+  <!-- 3 -->
+  <section id="tour">
+    <h2>3. Screen tour</h2>
+    <p>From top to bottom, the app is organized as follows.</p>
+    <div class="scroll"><table>
+      <tr><th>Area</th><th>What it does</th></tr>
+      <tr><td>Brand header</td><td>The Basmala, the Creed-to-Commerce™ mark and The Balanced Middle Path Academy, LLC.</td></tr>
+      <tr><td>Toolbar</td><td>SAR/USD toggle, the exchange rate box, and the <span class="btn p">⬇ Investor PDF</span> button.</td></tr>
+      <tr><td>Data manager</td><td>Sample-data banner, clear / restore / export / import buttons, and the report-detail fields.</td></tr>
+      <tr><td>Coach's rationale</td><td>A collapsible summary of why equity is measured the way it is.</td></tr>
+      <tr><td>1. Farm assumptions</td><td>24 numeric inputs that describe your farm, loan and return requirement.</td></tr>
+      <tr><td>2. Scenarios</td><td>An editable table of named cases with price, yield, feed and capex multipliers.</td></tr>
+      <tr><td>3. Equity outcomes</td><td>The low-to-high ranking, metric buttons, and an automatic "Coach's read".</td></tr>
+      <tr><td>4. Monte Carlo</td><td>Volatility settings, the Run button, statistics, a histogram and ranked percentiles.</td></tr>
+      <tr><td>5. Cash flow</td><td>A year-by-year table for whichever scenario you tapped in the ranking.</td></tr>
+    </table></div>
+  </section>
+
+  <!-- 4 -->
+  <section id="data">
+    <h2>4. Data manager: edit, clear, restore, save</h2>
+    <p>The yellow banner tells you whether <b>sample data</b> or <b>custom data</b> is in use. It switches to custom the moment you change anything.</p>
+    <div class="scroll"><table>
+      <tr><th>Control</th><th>What it does</th></tr>
+      <tr><td>Type in any field</td><td>Edits that value. All results update instantly.</td></tr>
+      <tr><td>✕ inside a field</td><td>Clears that one value (it becomes blank, counted as zero).</td></tr>
+      <tr><td><span class="btn d">Clear all sample data</span></td><td>Blanks every assumption and volatility setting and reduces the scenarios to a single neutral "Base case". Tap twice to confirm. Trials and random seed are kept.</td></tr>
+      <tr><td><span class="btn">Restore sample data</span></td><td>Reloads the original placeholders, including the five sample scenarios and report details. This overwrites your edits, so export first. Tap twice to confirm.</td></tr>
+      <tr><td><span class="btn">Export data (JSON)</span></td><td>Downloads a file named <code>BMPA-aquaponics-equity-data.json</code> holding your assumptions, scenarios, volatility settings, currency and report details.</td></tr>
+      <tr><td><span class="btn">Import data</span></td><td>Loads a JSON file previously exported from this app. Files from other sources are rejected with a message.</td></tr>
+      <tr><td>Report details</td><td>Project name, "Prepared for" and "Prepared by". They appear on the PDF cover.</td></tr>
+    </table></div>
+    <div class="callout warn"><b class="t">Before you restore or import</b>Both actions replace what is on screen. Export your current work first if you want to keep it.</div>
+    <p>With every field blank, the app shows "n/a" for ratios it cannot compute and a prompt to enter your figures. That is normal.</p>
+  </section>
+
+  <!-- 5 -->
+  <section id="currency">
+    <h2>5. Currency toggle (SAR / USD)</h2>
+    <ul>
+      <li>All values are stored internally in <b>Saudi riyals (SAR)</b>.</li>
+      <li>Tap <span class="btn">USD</span> to display every input, result, chart and report in US dollars. Tap <span class="btn">SAR</span> to return.</li>
+      <li>The exchange rate box (default <b>3.75 SAR per USD</b>, the long-standing riyal peg) is editable. Changing the rate changes only the display. It does not change your underlying SAR figures.</li>
+      <li>While USD is selected, money fields (capex, prices, costs) show and accept dollars. Percentages, years and kilograms never convert.</li>
+    </ul>
+    <div class="callout"><b class="t">Coach's tip</b>Enter your quotes in the currency they were quoted in. If a supplier quotes in USD, switch to USD, type the figure, and the app converts it to SAR for you.</div>
+  </section>
+
+  <!-- 6 -->
+  <section id="assumptions">
+    <h2>6. Farm assumptions (Section 1)</h2>
+    <p>All inputs are optional numbers. Where a field is "per kg", it refers to kilograms of fish <i>produced</i> unless stated.</p>
+    <div class="scroll"><table>
+      <tr><th>Field</th><th>Meaning</th><th>How to set it</th></tr>
+      <tr><td>Total capex</td><td>Full cost to build the farm: tanks, biofilters, grow beds, greenhouse or shading, pumps, aeration, power and backup, chillers, hatchery, site works.</td><td>Use signed supplier quotations. Add a contingency or use the Capex× multiplier for overrun cases.</td></tr>
+      <tr><td>Working capital</td><td>Cash to fund feed, fingerlings, payroll and utilities until sales cover costs. Recovered at the end of the horizon.</td><td>Several months of operating costs.</td></tr>
+      <tr><td>Debt share (%)</td><td>Share of total funding (capex + working capital) borrowed. The rest is owner equity.</td><td>From your lender's term sheet. Lower debt = more equity at risk but safer cover.</td></tr>
+      <tr><td>Loan interest (%)</td><td>Annual rate on the opening loan balance.</td><td>Include fees if they are material.</td></tr>
+      <tr><td>Loan term (years)</td><td>Years to repay. Principal is repaid in equal annual amounts.</td><td>Match the agreed tenor.</td></tr>
+      <tr><td>Mature output (gross kg/yr)</td><td>Annual fish production at full maturity, before mortality losses.</td><td>Design capacity × realistic utilization.</td></tr>
+      <tr><td>Mortality / grading loss (%)</td><td>Share of gross output that is never sold (deaths, rejects).</td><td>Use trial or operator data, not brochure figures.</td></tr>
+      <tr><td>Year 1 / Year 2 ramp-up (%)</td><td>Percent of mature output achieved in years 1 and 2. Year 3 onward is 100%.</td><td>Allow for stocking cycles and biofilter maturation.</td></tr>
+      <tr><td>Tilapia price (per kg)</td><td>Average price you actually receive, farm-gate.</td><td>Use offtake contracts or market evidence for your sales channel.</td></tr>
+      <tr><td>Produce sales (per yr)</td><td>Annual revenue from plants (greens, herbs) at maturity. It follows the same ramp-up.</td><td>Enter zero if you grow no crops.</td></tr>
+      <tr><td>Feed cost (per kg produced)</td><td>Feed price × feed conversion ratio.</td><td>The largest variable cost; verify with your feed supplier.</td></tr>
+      <tr><td>Fingerlings (per kg)</td><td>Seed-stock cost per kg of fish produced.</td><td>Hatchery quote ÷ expected harvest weight.</td></tr>
+      <tr><td>Energy &amp; cooling (per kg)</td><td>Electricity for pumps, aeration, cooling and heating per kg produced.</td><td>Critical in Saudi heat. Base it on an engineer's load estimate.</td></tr>
+      <tr><td>Labor / Other fixed (per yr)</td><td>Salaries and housing, plus insurance, maintenance, licences, marketing and admin.</td><td>Include every cost that does not move with output.</td></tr>
+      <tr><td>Cost inflation / Price growth (%/yr)</td><td>Yearly increase in costs and in selling price.</td><td>Keep price growth at or below cost inflation to stay prudent.</td></tr>
+      <tr><td>Asset life (years)</td><td>Straight-line depreciation period for capex.</td><td>Per your accountant's policy.</td></tr>
+      <tr><td>Maintenance capex (% of capex)</td><td>Yearly spending to keep assets working, deducted from equity cash flow.</td><td>1% to 3% is a common planning range; check with your engineer.</td></tr>
+      <tr><td>Effective tax/zakat (%)</td><td>Rate applied to positive pre-tax profit.</td><td>Depends on ownership structure. Confirm with a qualified Saudi adviser.</td></tr>
+      <tr><td>Cost of equity (%)</td><td>The return you require. Used to discount equity cash flows for NPV.</td><td>What you could earn on an alternative investment of similar risk.</td></tr>
+      <tr><td>Horizon (years)</td><td>Number of years modeled. Minimum 1.</td><td>Often 8 to 10 years for farms.</td></tr>
+      <tr><td>Exit EBITDA multiple (x)</td><td>Used to value the farm at the end: EBITDA × multiple − remaining debt + working capital.</td><td>Be conservative. Test lower values.</td></tr>
+    </table></div>
+  </section>
+
+  <!-- 7 -->
+  <section id="scenarios">
+    <h2>7. Scenarios (Section 2)</h2>
+    <p>Each scenario scales your base assumptions with four multipliers. <b>1.00</b> means "as entered".</p>
+    <div class="scroll"><table>
+      <tr><th>Multiplier</th><th>Applies to</th><th>Example</th></tr>
+      <tr><td>Price ×</td><td>Tilapia selling price</td><td>0.90 = a 10% lower price</td></tr>
+      <tr><td>Yield ×</td><td>Gross output</td><td>0.90 = 10% fewer kilograms</td></tr>
+      <tr><td>Feed ×</td><td>Feed cost per kg</td><td>1.20 = feed 20% more expensive</td></tr>
+      <tr><td>Capex ×</td><td>Total build cost</td><td>1.10 = a 10% construction overrun</td></tr>
+    </table></div>
+    <h3>Working with scenarios</h3>
+    <ul>
+      <li><b>Rename</b> a scenario by typing in its name box.</li>
+      <li><b>Add</b> one with <span class="btn">+ Add scenario</span> (up to 8). It starts neutral at 1.00 everywhere.</li>
+      <li><b>Remove</b> one with its ✕. At least one scenario must remain.</li>
+      <li><b>Base</b> radio button: marks the scenario used as the <b>centre of the Monte Carlo draws</b> and as the headline case in the investor PDF. Choose the case you believe is most likely.</li>
+    </ul>
+    <div class="callout"><b class="t">Coach's tip</b>Design scenarios around real stories: "Heat wave raises power cost and mortality", "Offtake contract at premium", "Build delayed and 10% over budget". Named stories are easier for investors to discuss than abstract percentages.</div>
+  </section>
+
+  <!-- 8 -->
+  <section id="outcomes">
+    <h2>8. Equity outcomes (Section 3)</h2>
+    <p>Scenarios appear as cards ranked <b>from lowest (#1) to highest</b> on the metric you select. A bar shows each result relative to zero: green for acceptable, red for unfavorable.</p>
+    <h3>Metric buttons</h3>
+    <div class="scroll"><table>
+      <tr><th>Metric</th><th>What it tells you</th><th>Good sign</th></tr>
+      <tr><td>NPV of equity</td><td>Today's value of all equity cash flows minus the equity invested, discounted at your cost of equity.</td><td>Above zero: the farm beats your required return.</td></tr>
+      <tr><td>Equity IRR</td><td>The annual return on your invested equity. Shown as n/a if cash flows never change sign.</td><td>Higher than your cost of equity.</td></tr>
+      <tr><td>Equity multiple</td><td>Total cash returned divided by equity invested.</td><td>Above 1.0x means you get your money back; higher is better.</td></tr>
+      <tr><td>Avg ROE</td><td>Average annual net income divided by equity invested.</td><td>Consistently above your cost of equity.</td></tr>
+      <tr><td>Exit equity value</td><td>What your stake is worth at the horizon.</td><td>A large share of total value should not depend on this alone.</td></tr>
+    </table></div>
+    <h3>The chips under each card</h3>
+    <ul>
+      <li><b>Equity in:</b> the cash owners put in.</li>
+      <li><b>Payback:</b> years until cumulative equity cash flow turns positive, or "beyond horizon".</li>
+      <li><b>Min DSCR:</b> the weakest year of debt service cover. Lenders commonly look for roughly 1.2x or more; below 1.0x means cash earnings did not cover loan payments.</li>
+    </ul>
+    <h3>Coach's read</h3>
+    <p>A short written summary appears under the ranking. It names the weakest and strongest scenarios, flags thin debt cover, and gives the <b>break-even tilapia price</b>: the price at which base-scenario NPV is exactly zero, plus your percentage cushion above it.</p>
+    <p><b>Tap any scenario card</b> to highlight it and load its year-by-year table in Section 5.</p>
+  </section>
+
+  <!-- 9 -->
+  <section id="montecarlo">
+    <h2>9. Monte Carlo simulation (Section 4)</h2>
+    <p>Scenarios show a few chosen futures. The simulation shows <b>thousands</b>, so you can read a probability instead of guessing.</p>
+    <h3>How it works</h3>
+    <p>For each trial the app randomly varies price, yield, feed cost, capex and mortality around your base scenario, runs the full model, and records the equity result. The distribution of results is then summarized.</p>
+    <h3>Settings</h3>
+    <div class="scroll"><table>
+      <tr><th>Setting</th><th>Meaning</th></tr>
+      <tr><td>Trials</td><td>Number of random runs (200 to 20,000; default 2,000). More trials give smoother results but take longer.</td></tr>
+      <tr><td>Random seed</td><td>Same seed + same inputs = identical results, so you can reproduce a report. Change it to see how stable results are.</td></tr>
+      <tr><td>Price / Yield / Feed volatility (σ, %)</td><td>Typical spread of each driver. About two-thirds of draws fall within ±1σ.</td></tr>
+      <tr><td>Capex overrun volatility (σ, %)</td><td>Capex can only overrun, never come in lower than the base scenario in this model, so this spread is one-sided.</td></tr>
+      <tr><td>Mortality volatility (σ, pts)</td><td>Spread in percentage points added to your mortality assumption.</td></tr>
+    </table></div>
+    <h3>Reading the output</h3>
+    <ul>
+      <li><b>Probability NPV &gt; 0:</b> the share of trials that beat your required return.</li>
+      <li><b>Probability capital loss:</b> the share of trials with an equity multiple below 1.0x.</li>
+      <li><b>Probability DSCR &lt; 1.0x:</b> how often the farm fails to cover its loan payments in its weakest year.</li>
+      <li><b>Avg NPV, worst 5%:</b> the average outcome in the unluckiest 5% of trials. This is your realistic "bad luck" figure.</li>
+      <li><b>Histogram:</b> the spread of NPV outcomes. Red bars are below zero, green above; the dashed gold line marks zero.</li>
+      <li><b>Percentile ranking, low to high:</b> P5 means "only 5% of trials were worse"; P50 is the median; P95 means "only 5% were better".</li>
+    </ul>
+    <div class="callout warn"><b class="t">Stale results</b>If you change any input after a run, a warning appears. Press <span class="btn p">Run simulation</span> again to refresh. The PDF re-runs it automatically when needed.</div>
+    <div class="callout"><b class="t">Coach's tip: choosing volatility</b>Do not guess. Base each σ on evidence: historical tilapia wholesale price ranges, feed price swings over the last few years, your operator's mortality records, and typical overruns on comparable builds. Investors will ask how you chose them.</div>
+  </section>
+
+  <!-- 10 -->
+  <section id="cashflow">
+    <h2>10. Cash flow table (Section 5)</h2>
+    <p>This table shows the selected scenario year by year (year 0 is the equity invested, shown negative).</p>
+    <div class="scroll"><table>
+      <tr><th>Column</th><th>Meaning</th></tr>
+      <tr><td>Revenue</td><td>Fish sales plus produce sales.</td></tr>
+      <tr><td>EBITDA</td><td>Revenue minus variable and fixed operating costs.</td></tr>
+      <tr><td>Net income</td><td>EBITDA minus depreciation, interest and tax.</td></tr>
+      <tr><td>Principal</td><td>Loan principal repaid that year.</td></tr>
+      <tr><td>Equity cash flow</td><td>Cash to owners after debt service and maintenance capex. The final year (marked *) includes the exit value.</td></tr>
+      <tr><td>Debt bal.</td><td>Loan outstanding at the start of the year.</td></tr>
+    </table></div>
+  </section>
+
+  <!-- 11 -->
+  <section id="pdf">
+    <h2>11. Investor PDF</h2>
+    <ol class="steps">
+      <li>Complete the <b>Report details</b> in the Data manager: project name, who it is prepared for, and who prepared it.</li>
+      <li>Choose your display currency (SAR or USD).</li>
+      <li>Tap <span class="btn p">⬇ Investor PDF</span>. The app runs a fresh Monte Carlo if needed and opens your browser's print dialog.</li>
+      <li>Set the destination to <b>Save as PDF</b>. Choose A4 or Letter, and tick <b>Background graphics</b> if offered so shaded boxes print.</li>
+      <li>Save the file and review every page before sending.</li>
+    </ol>
+    <h3>What the report contains</h3>
+    <ul>
+      <li>A branded cover with the Basmala and the Creed-to-Commerce™ mark, plus date, currency and who it is prepared for and by.</li>
+      <li>Headline figures for the base scenario: funding, debt, equity, NPV, IRR, multiple, payback and break-even price.</li>
+      <li>Key assumptions, scenarios ranked low to high, Monte Carlo statistics with histogram and percentile table, and the base-scenario cash flow.</li>
+      <li>A disclaimer and a Creed-to-Commerce™ footer on every page.</li>
+    </ul>
+    <div class="callout warn"><b class="t">Sample-data notice</b>While sample data is still in use, the PDF carries an "Illustrative sample data" banner. Clear or replace the sample data before sharing with investors.</div>
+    <div class="callout"><b class="t">If the print dialog does not open</b>Some embedded previews block printing. Open the app file directly in a full browser window (Chrome, Edge, Safari or Firefox) and try again.</div>
+  </section>
+
+  <!-- 12 -->
+  <section id="reading">
+    <h2>12. Reading the results like a coach</h2>
+    <p>Work through these questions in order.</p>
+    <ol>
+      <li><b>Look at #1 first (the lowest outcome).</b> Could you and your co-investors live with this result? If not, the structure is too fragile. Reduce debt, add reserves, or secure contracts.</li>
+      <li><b>Check cover.</b> If minimum DSCR is below roughly 1.2x in a plausible downside, talk to your lender about grace periods, a longer tenor or less debt.</li>
+      <li><b>Compare base NPV with the break-even price.</b> A thin price cushion means small market moves decide your fate.</li>
+      <li><b>Use the probabilities.</b> The app's own wording treats a probability of positive NPV of about 70% or more as a favourable profile, 50% to 70% as needing de-risking, and below 50% as weak. These are planning guides, not rules; your own risk tolerance decides.</li>
+      <li><b>Test the biggest levers.</b> Raise feed cost, cut price, lower yield or lower the exit multiple one at a time, and see which one moves equity most. That is where to spend your negotiation effort.</li>
+      <li><b>Do not rely on exit value alone.</b> If NPV is positive only because of the final-year exit, the operating cash flows are not carrying the investment.</li>
+    </ol>
+    <div class="scroll"><table>
+      <tr><th>Indicator</th><th>Comfortable</th><th>Caution</th></tr>
+      <tr><td>NPV of equity</td><td>Positive in base and in most downside cases</td><td>Negative in base</td></tr>
+      <tr><td>Equity IRR</td><td>Above cost of equity with room to spare</td><td>Close to or below cost of equity</td></tr>
+      <tr><td>Equity multiple</td><td>Comfortably above 1.0x</td><td>Near or below 1.0x</td></tr>
+      <tr><td>Min DSCR</td><td>About 1.2x or higher</td><td>Below 1.0x in any plausible case</td></tr>
+      <tr><td>Probability NPV &gt; 0</td><td>About 70% or more</td><td>Below 50%</td></tr>
+    </table></div>
+  </section>
+
+  <!-- 13 -->
+  <section id="model">
+    <h2>13. How the model works</h2>
+    <p>For transparency, here are the calculations behind the numbers. Each year <i>y</i> of the horizon is computed as follows.</p>
+    <div class="formula">Funding      = Capex × CapexMult + Working capital
+Debt         = Funding × Debt share        Equity = Funding − Debt
+Ramp         = Y1 ramp, Y2 ramp, then 100%
+Gross kg     = Mature kg × YieldMult × Ramp
+Sold kg      = Gross kg × (1 − Mortality)
+Revenue      = Sold kg × Price × PriceMult × (1+price growth)^(y−1)
+             + Produce sales × Ramp × (1+price growth)^(y−1)
+Variable cost= Gross kg × (Feed × FeedMult + Fingerlings + Energy)
+             × (1+inflation)^(y−1)
+Fixed cost   = (Labor + Other) × (1+inflation)^(y−1)
+EBITDA       = Revenue − Variable cost − Fixed cost
+Depreciation = Capex ÷ Asset life   (years up to asset life)
+Interest     = Opening loan balance × Rate
+Principal    = Debt ÷ Term          (years up to loan term)
+Tax          = max(0, EBITDA − Depreciation − Interest) × Tax rate
+Net income   = EBITDA − Depreciation − Interest − Tax
+Equity CF    = Net income + Depreciation − Principal − Maintenance capex
+Final year  += max(0, EBITDA) × Exit multiple − Loan balance + Working capital</div>
+    <h3>Result measures</h3>
+    <div class="formula">NPV      = −Equity + Σ Equity CF(y) ÷ (1 + Cost of equity)^y
+IRR      = rate at which NPV = 0 (found by search; n/a if no sign change)
+Multiple = Sum of positive equity cash flows ÷ Equity
+Avg ROE  = Average annual net income ÷ Equity
+DSCR(y)  = (EBITDA − Tax) ÷ (Interest + Principal); the minimum year is shown
+Break-even price = tilapia price at which base-scenario NPV = 0</div>
+    <h3>Monte Carlo draws</h3>
+    <p>Each trial draws normally distributed multipliers centred on the base scenario (capex overrun is one-sided), limited to sensible bounds: price 0.4 to 1.8, yield 0.4 to 1.5, feed 0.6 to 1.8, capex 0.7 to 1.6, mortality 0% to 40%. A seeded random generator makes runs repeatable.</p>
+  </section>
+
+  <!-- 14 -->
+  <section id="limits">
+    <h2>14. Limitations</h2>
+    <ul>
+      <li><b>Simplified tax and zakat:</b> one effective rate on positive profit, with no loss carry-forward or distinctions between Saudi and foreign ownership.</li>
+      <li><b>Equal principal repayment</b> and interest on the opening balance; no grace periods, fees or covenants.</li>
+      <li><b>Constant working capital:</b> it is funded at the start and recovered at the end; it does not change during the horizon.</li>
+      <li><b>Independent random draws:</b> in the Monte Carlo, price, yield, feed, capex and mortality move independently. In reality a heat wave may hit several at once, so treat the simulation as a guide and lean on scenarios for correlated shocks.</li>
+      <li><b>Single site, single product line:</b> no phasing of expansion, no biological disease events, no price seasonality.</li>
+      <li><b>Exit value is an assumption:</b> a multiple of final-year EBITDA, not a valuation.</li>
+    </ul>
+    <div class="callout warn"><b class="t">Disclaimer</b>This tool is a planning model. It is not financial, legal, tax or investment advice, an offer of securities, or a forecast. Verify all inputs against quotations, term sheets and market evidence, and consult qualified Saudi advisers on tax, zakat and licensing before making commitments.</div>
+  </section>
+
+  <!-- 15 -->
+  <section id="trouble">
+    <h2>15. Troubleshooting and FAQ</h2>
+    <details><summary>Many results show "n/a".</summary><p>This happens when equity is zero (for example, after clearing the data), or when cash flows never change sign so IRR cannot be calculated. Enter your capex and funding figures.</p></details>
+    <details><summary>I cleared the data and the ranking looks empty or flat.</summary><p>With blank inputs every scenario evaluates to zero. Enter your assumptions in Section 1, then add scenarios in Section 2.</p></details>
+    <details><summary>The Monte Carlo shows a "stale" warning.</summary><p>An input changed after the last run. Press <b>Run simulation</b> again.</p></details>
+    <details><summary>Import says the file is not valid.</summary><p>Only JSON files exported from this app can be imported. Re-export from the app and try again. Do not edit the file's structure by hand.</p></details>
+    <details><summary>The PDF has no colored boxes or looks plain.</summary><p>In the print dialog, tick <b>Background graphics</b>. This is usually under "More settings".</p></details>
+    <details><summary>The PDF button does nothing.</summary><p>Printing may be blocked in an embedded preview. Open the file directly in a normal browser window.</p></details>
+    <details><summary>The Arabic text or Amiri font looks different offline.</summary><p>The Amiri font loads from Google Fonts when you are online. Offline, the browser substitutes a similar serif font. Everything still works.</p></details>
+    <details><summary>Where is my data stored?</summary><p>Only in the open page. It is not saved automatically. Closing or refreshing the page returns to the sample data. Use <b>Export data (JSON)</b> to keep your work.</p></details>
+    <details><summary>Can I use this for a different farm or crop?</summary><p>Yes, for any similar single-site operation, provided its economics fit the model's structure (output, price, per-kg and fixed costs, one loan). Rename the project in the report details.</p></details>
+  </section>
+
+  <!-- 16 -->
+  <section id="glossary">
+    <h2>16. Glossary</h2>
+    <div class="scroll"><table>
+      <tr><th>Term</th><th>Plain-language meaning</th></tr>
+      <tr><td>Aquaponics</td><td>Farming fish and plants together; fish waste feeds the plants, and the plants help clean the water.</td></tr>
+      <tr><td>Capex</td><td>Capital expenditure: one-off spending to build the farm.</td></tr>
+      <tr><td>Cost of equity</td><td>The return owners require for taking the risk; the discount rate in NPV.</td></tr>
+      <tr><td>DSCR</td><td>Debt service coverage ratio: cash earnings divided by loan payments.</td></tr>
+      <tr><td>EBITDA</td><td>Earnings before interest, tax, depreciation and amortization; a measure of operating cash earnings.</td></tr>
+      <tr><td>Equity</td><td>The owners' cash invested, after subtracting borrowed money.</td></tr>
+      <tr><td>FCR</td><td>Feed conversion ratio: kg of feed needed per kg of fish grown.</td></tr>
+      <tr><td>IRR</td><td>Internal rate of return: the yearly return that makes NPV zero.</td></tr>
+      <tr><td>Monte Carlo</td><td>Running a model thousands of times with random inputs to see the range and probability of outcomes.</td></tr>
+      <tr><td>NPV</td><td>Net present value: future cash flows converted to today's money, minus the amount invested.</td></tr>
+      <tr><td>Percentile (P5, P50, P95)</td><td>The value below which that percentage of trials fall.</td></tr>
+      <tr><td>Ramp-up</td><td>The period when a new farm is still building up to full production.</td></tr>
+      <tr><td>σ (sigma)</td><td>Standard deviation: the typical size of a random swing around the average.</td></tr>
+      <tr><td>Zakat</td><td>An obligatory annual levy in Saudi Arabia that applies to Saudi and GCC-owned businesses on a zakat base. Treatment varies by ownership.</td></tr>
+    </table></div>
+  </section>
+
+  <div class="foot">
+    <div class="basmala" lang="ar" dir="rtl" style="font-size:1.3rem;line-height:1.6">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+    <b>Creed-to-Commerce™</b> · The Balanced Middle Path Academy, LLC · © <span id="yr"></span>
+  </div>
+</main>
+</div>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
